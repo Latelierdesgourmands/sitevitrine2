@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  background-image: url('header.jpg'); /* mets ici le bon chemin */
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  will-change: transform, opacity; /* parallax */
+}
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+h1, h2 { margin: 20px 0; }
+
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* UNIVERS */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+.bloc { width: 250px; text-align: center; }
+.bloc img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  filter: brightness(.85) saturate(.95);
+  transition: filter .3s ease, transform .3s ease;
+}
+.bloc:hover img {
+  filter: brightness(1.18) saturate(1.05);
+  transform: scale(1.02);
+}
+
+/* LOCALISATION */
+.localisation .carte { margin-top: 20px; }
+
+/* HISTOIRE */
+.histoire-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+.histoire-grid img { width: 45%; border-radius: 10px; }
+.histoire-grid div { width: 50%; }
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- Reveal on scroll --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Intro hero titre --- */
+.hero-title, .hero-sub { will-change: opacity, transform; }
+.hero-title.split span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+}
+.hero-title.split span.in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform .4s ease, opacity .4s ease;
+}
+.hero-title { letter-spacing: .02em; }
+
+.hero-title.split span.space{
+  display:inline-block;
+  width:.5ch;          /* largeur d’un demi caractère */
